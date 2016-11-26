@@ -47,13 +47,17 @@ class RtmEventHandler(object):
                     self.msg_writer.write_help_message(event['channel'])
                 if re.search('weather', lower_txt):
                     self.msg_writer.write_weather(channel_id)
-                elif re.search('hi|hey|hello|howdy', msg_txt):
+                # if re.search('unflip', lower_txt):
+                #     self.msg_writer.write_unflip(channel_id)
+                # elif re.search('flip|rageflip|rage', lower_txt):
+                #     self.msg_writer.write_flip(channel_id)
+                if re.search('hi|hey|hello|howdy', msg_txt):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
-                elif 'joke' in msg_txt:
+                if 'joke' in msg_txt:
                     self.msg_writer.write_joke(event['channel'])
-                elif 'attachment' in msg_txt:
+                if 'attachment' in msg_txt:
                     self.msg_writer.demo_attachment(event['channel'])
-                elif 'echo' in msg_txt:
+                if 'echo' in msg_txt:
                     self.msg_writer.send_message(event['channel'], msg_txt)
                 else:
                     self.msg_writer.write_prompt(event['channel'])
