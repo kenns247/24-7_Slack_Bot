@@ -47,13 +47,19 @@ class RtmEventHandler(object):
                     self.msg_writer.write_help_message(event['channel'])
                 if re.search('weather', lower_txt):
                     self.msg_writer.write_weather(channel_id)
-                elif re.search('hi|hey|hello|howdy', msg_txt):
+                if re.search('hi|hey|hello|howdy', msg_txt):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
-                elif 'joke' in msg_txt:
+                if 'joke' in msg_txt:
                     self.msg_writer.write_joke(event['channel'])
-                elif 'attachment' in msg_txt:
-                    self.msg_writer.demo_attachment(event['channel'])
-                elif 'echo' in msg_txt:
+                if 'attachment' in msg_txt:
+                    self.msg_writer.demo_attachment(event['channel'])				
+				if 'echo' in msg_txt:
                     self.msg_writer.send_message(event['channel'], msg_txt)
+				if re.search('i choose you', lower_txt):
+					self.msg_writer.write_cast_pokemon(lower_txt, channel_id)
+                if re.search('who\'?s that pokemon', lower_txt):
+                    self.msg_writer.write_whos_that_pkmn(channel_id)
+                if re.search('it\'?s ', lower_txt):
+					self.msg_writer.write_pkmn_guessed_response(self, lower_txt, channel_id, user_id)
                 else:
                     self.msg_writer.write_prompt(event['channel'])

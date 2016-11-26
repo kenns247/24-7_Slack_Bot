@@ -5,13 +5,15 @@ import random
 import weather_manager
 from resource_manager import ResourceManager
 
-logger = logging.getLogger(__name__)
+from pkmn_manager import PokemonManager
 
+logger = logging.getLogger(__name__)
 
 class Messenger(object):
     def __init__(self, slack_clients):
         self.clients = slack_clients
         self.help_manager = ResourceManager('help_text.txt')
+		self.pkmn_manager = PokemonManager()
 
     def send_message(self, channel_id, msg):
         # in the case of Group and Private channels, RTM channel payload is a complex dictionary
@@ -32,6 +34,20 @@ class Messenger(object):
         greetings = ['Hi', 'Hello', 'Nice to meet you', 'Howdy', 'Salutations']
         txt = '{}, <@{}>!'.format(random.choice(greetings), user_id)
         self.send_message(channel_id, txt)
+		
+	def write_cast_pokemon(self, msg, channel_id):
+        pkmn = self.pkmn_manager.choose_pkmn(msg)
+        if pkmn is not None:
+            self.send_message(pkmn, channel_id)
+			
+	def write_whos_that_pkmn(self, channel_id):
+		txt = self.pkmn_manager.whos_that_pkmn(channel_id)
+		self.send_message(txt, channel_id)
+	
+    def write_pkmn_guessed_response(self, msg_text, channel_id, user_id):
+        text = self.pkmn_manager.check_response(user_id, msg_text)
+        if text is not None:
+            self.send_message(text, channel_id)
 
     def write_prompt(self, channel_id):
         bot_uid = self.clients.bot_user_id()
@@ -44,7 +60,6 @@ class Messenger(object):
         self.clients.send_user_typing_pause(channel_id)
         answer = "To eat the chicken on the other side! :laughing:"
         self.send_message(channel_id, answer)
-
 
     def write_error(self, channel_id, err_msg):
         txt = ":face_with_head_bandage: my maker didn't handle this error very well:\n>```{}```".format(err_msg)
