@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import sys
-sys.path.insert(0, '/managers')
-
 import logging
 import random
 import weather_manager
