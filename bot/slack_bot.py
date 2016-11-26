@@ -16,6 +16,7 @@ def spawn_bot():
 class SlackBot(object):
     def __init__(self, token=None):
         """Creates Slacker Web and RTM clients with API Bot User token.
+
         Args:
             token (str): Slack API Bot User token (for development token set in env)
         """
@@ -28,6 +29,7 @@ class SlackBot(object):
         """Creates Slack Web and RTM clients for the given Resource
         using the provided API tokens and configuration, then connects websocket
         and listens for RTM events.
+
         Args:
             resource (dict of Resource JSON): See message payloads - https://beepboophq.com/docs/article/resourcer-api
         """
@@ -71,6 +73,7 @@ class SlackBot(object):
     def stop(self, resource):
         """Stop any polling loops on clients, clean up any resources,
         close connections if possible.
+
         Args:
             resource (dict of Resource JSON): See message payloads - https://beepboophq.com/docs/article/resourcer-api
         """

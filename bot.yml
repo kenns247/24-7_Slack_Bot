@@ -1,5 +1,5 @@
-name: 24-7 Slack Bot
-description: A simple Python bot
+name: TempName
+description: A simple Python bot sample for Beep Boop
 avatar: resources/avatar.png
 background: resources/background.png
 config:
