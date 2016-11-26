@@ -1,3 +1,6 @@
+import os.path
+import random
+
 class ResourceManager(object):
     def __init__(self, file_name):
         with open(os.path.join('./resources', file_name), 'r') as f:
