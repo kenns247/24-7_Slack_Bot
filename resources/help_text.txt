@@ -1,0 +1,3 @@
+> `Hi` - I'll greet back, i don't bite. :wave:
+> `Joke` - I'll tell you one of my finest jokes :laughing:
+> `Weather` - Let me tell you the weather in Winnipeg. :rainbow:

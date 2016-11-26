@@ -19,12 +19,11 @@ class Messenger(object):
         channel.send_message(msg)
 
     def write_help_message(self, channel_id):
-        bot_uid = self.clients.bot_user_id()
-        txt = '{}\n{}\n{}\n{}'.format(
-            "I'm your friendly Slack bot written in Python.  I'll *_respond_* to the following commands:",
-            "> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:",
-            "> `<@" + bot_uid + "> joke` - I'll tell you one of my finest jokes, with a typing pause for effect. :laughing:",
-            "> `<@" + bot_uid + "> attachment` - I'll demo a post with an attachment using the Web API. :paperclip:")
+        help_txt = self.help_manager.get_all()
+        count = self.help_manager.get_count()
+        txt = (
+            "I'm Flip Gunderson.  I'll *_respond_* to the following {} commands:\n{}"
+        ).format(count-1, help_txt)
         self.send_message(channel_id, txt)
 
     def write_greeting(self, channel_id, user_id):
