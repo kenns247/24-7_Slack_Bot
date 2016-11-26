@@ -67,7 +67,7 @@ class Messenger(object):
         self.send_message(channel_id, weather_manager.getCurrentWeather())
 
     def write_flip(self, channel_id):
-        self.send_message(u"(╯°□°）╯︵ ┻━┻", channel_id)
+        self.send_message(channel_id, u"(╯°□°）╯︵ ┻━┻")
 
     def write_unflip(self, channel_id):
-        self.send_message(u"┬─┬ノ( º _ ºノ)", channel_id)
+        self.send_message(channel_id, u"┬─┬ノ( º _ ºノ)")
