@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
+import sys
+sys.path.insert(0, '/24-7_Slack_Bot/managers')
+
 import logging
 import random
-import managers/weather_manager
-from managers/resource_manager import ResourceManager
+import weather_manager
+from resource_manager import ResourceManager
 
 logger = logging.getLogger(__name__)
 
