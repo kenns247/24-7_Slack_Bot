@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-sys.path.insert(0, '/24-7_Slack_Bot/managers')
+sys.path.insert(0, '/managers')
 
 import logging
 import random
