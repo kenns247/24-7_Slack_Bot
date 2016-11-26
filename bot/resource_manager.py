@@ -1,4 +1,4 @@
-class resource_manager(object):
+class ResourceManager(object):
     def __init__(self, file_name):
         with open(os.path.join('./resources', file_name), 'r') as f:
             self.responses = f.read().splitlines()
