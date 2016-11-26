@@ -3,7 +3,7 @@
 import logging
 import random
 import weather_manager
-import ResourceManager
+from resource_manager import ResourceManager
 
 logger = logging.getLogger(__name__)
 
