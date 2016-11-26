@@ -63,8 +63,5 @@ class Messenger(object):
         }
         self.clients.web.chat.post_message(channel_id, txt, attachments=[attachment], as_user='true')
 
-    def write_slow(self, msg_text, channel=None):
-        return self.send_message(channel, msg_text)
-
     def write_weather(self, channel_id):
-        self.write_slow(weather_manager.getCurrentWeather(), channel_id)
+        self.send_message(channel_id, weather_manager.getCurrentWeather())
