@@ -25,7 +25,7 @@ class Messenger(object):
         count = self.help_manager.get_count()
         txt = (
             "I'm Flip Gunderson.  I'll *_respond_* to the following {} commands:\n{}"
-        ).format(count-1, help_txt)
+        ).format(count, help_txt)
         self.send_message(channel_id, txt)
 
     def write_greeting(self, channel_id, user_id):
@@ -65,3 +65,9 @@ class Messenger(object):
 
     def write_weather(self, channel_id):
         self.send_message(channel_id, weather_manager.getCurrentWeather())
+
+    def write_flip(self, channel_id):
+        self.send_message(u"(╯°□°）╯︵ ┻━┻", channel_id)
+
+    def write_unflip(self, channel_id):
+        self.send_message(u"┬─┬ノ( º _ ºノ)", channel_id)
