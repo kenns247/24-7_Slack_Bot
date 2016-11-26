@@ -2,6 +2,7 @@
 
 import logging
 import random
+import weather_manager
 
 logger = logging.getLogger(__name__)
 
@@ -61,3 +62,9 @@ class Messenger(object):
             "color": "#7CD197",
         }
         self.clients.web.chat.post_message(channel_id, txt, attachments=[attachment], as_user='true')
+
+    def write_slow(self, msg_text, channel=None):
+        return self.send_message(channel, msg_text)
+
+    def write_weather(self, channel_id):
+        self.write_slow(weather_manager.getCurrentWeather(), channel_id)
