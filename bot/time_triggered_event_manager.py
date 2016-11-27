@@ -12,7 +12,6 @@ class TimeTriggeredEventManager(object):
         self.clients = clients
         self.msg_writer = msg_writer
         self.channel_manager = ChannelManager(clients)
-        self.process_recent_messages()
 
     def trigger_eleven_eleven(self):
         channel_id = self.channel_manager.get_channel_id('flip-testing')
@@ -26,7 +25,7 @@ class TimeTriggeredEventManager(object):
         # seconds and we wantz the if statement to trigger once per min only
         if(second >= 5 and second <= 15):
             if day == 'Sunday':
-                if hour == 16 and minute == 31:
+                if hour == 16 and minute == 33:
                     self.trigger_eleven_eleven()
 
     def _get_datetime():
