@@ -15,6 +15,7 @@ class TimeTriggeredEventManager(object):
         self.process_recent_messages()
 
     def trigger_eleven_eleven(self):
+        channel_id = self.channel_manager.get_channel_id('random')
         response = '<!channel> 11:11 is in 11 minutes!! Grab some :coffee: and then hit the bleachers!'
         self.msg_writer.send_message(response)
 
