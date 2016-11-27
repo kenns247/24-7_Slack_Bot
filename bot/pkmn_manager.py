@@ -45,13 +45,15 @@ class PokemonManager(object):
         revealed_name = self.reveal_answer()
         return '{} {} You go <@{}>!'.format(random_response, revealed_name, user)
         
-    def choose_pkmn(self, target):
+    def cast_pkmn(self, msg):
         link = URL
+        tokens = msg.split()
+        target = tokens[-1]
         pkmn = link.format(target)
         try:
             response = requests.get(pkmn)
         except requests.exceptions.RequestException:
-            return None
+            return 'Is <' + target + 'even a pokemon?'
         else:
             pokemon = response.json()
             if 'sprites' in pokemon:

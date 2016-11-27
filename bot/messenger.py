@@ -36,7 +36,7 @@ class Messenger(object):
         self.send_message(channel_id, txt)
 
     def write_cast_pokemon(self, msg, channel_id):
-        pkmn = self.pkmn_manager.choose_pkmn(msg)
+        pkmn = self.pkmn_manager.cast_pkmn(msg)
         if pkmn is not None:
             self.send_message(channel_id, pkmn)
             
