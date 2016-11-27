@@ -46,7 +46,7 @@ class Messenger(object):
     
     def write_pkmn_guessed_response(self, msg_text, channel_id, user_id):
         txt = self.pkmn_manager.check_response(user_id, channel_id, msg_text)
-        if text is not None:
+        if txt is not None:
             self.send_message(channel_id, txt)
 
     def write_prompt(self, channel_id):
