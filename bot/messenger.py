@@ -34,13 +34,13 @@ class Messenger(object):
         greetings = ['Hi', 'Hello', 'Nice to meet you', 'Howdy', 'Salutations']
         txt = '{}, <@{}>!'.format(random.choice(greetings), user_id)
         self.send_message(channel_id, txt)
-		
-	def write_cast_pokemon(self, msg, channel_id):
+
+    def write_cast_pokemon(self, msg, channel_id):
         pkmn = self.pkmn_manager.choose_pkmn(msg)
         if pkmn is not None:
             self.send_message(pkmn, channel_id)
 			
-	def write_whos_that_pkmn(self, channel_id):
+    def write_whos_that_pkmn(self, channel_id):
 		txt = self.pkmn_manager.whos_that_pkmn(channel_id)
 		self.send_message(txt, channel_id)
 	
