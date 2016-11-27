@@ -42,7 +42,7 @@ class Messenger(object):
             
     def write_whos_that_pkmn(self, channel_id):
         txt = self.pkmn_manager.whos_that_pkmn(channel_id)
-        self.send_message(channel_id, pkmn)
+        self.send_message(channel_id, txt)
     
     def write_pkmn_guessed_response(self, msg_text, channel_id, user_id):
         txt = self.pkmn_manager.check_response(user_id, msg_text)
