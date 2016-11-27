@@ -33,17 +33,16 @@ class PokemonManager(object):
 
     def check_response(self, user, channel, msg):
         if (channel in self.correct_answers):
-            answer = self.correct_answers[channel]
+            answer = self.correct_answers.pop(channel)
             tokens = msg.split()
             if answer in tokens:
-                return self.guessed_correctly(user, channel)
+                return self.guessed_correctly(user, answer, channel)
             else:
                 return '<@{}> {}'.format(user, self.neg_response_manager.get_response())
 
-    def guessed_correctly(self, user, channel):
+    def guessed_correctly(self, user, answer, channel):
         random_response = self.pos_response_manager.get_response()
-        revealed_name = self.reveal_answer()
-        return '{} {} You go <@{}>!'.format(random_response, revealed_name, user)
+        return '{} It was {}! You go <@{}>!'.format(random_response, answer, user)
         
     def cast_pkmn(self, msg):
         link = URL
