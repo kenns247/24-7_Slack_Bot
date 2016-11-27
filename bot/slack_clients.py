@@ -36,3 +36,12 @@ class SlackClients(object):
         user_typing_json = {"id": 1, "type": "typing", "channel": channel_id}
         self.rtm.server.send_to_websocket(user_typing_json)
         time.sleep(sleep_time)
+
+    def get_channels(self):
+        response = self.rtm.api_call(
+            'channels.list', token=str(self.token), exclude_archived=1,
+        )
+        if 'error' in response:
+            error_msg = "`get_channels` error:\n" + str(response)
+            self.msg_writer.write_error(error_msg)
+        return response
