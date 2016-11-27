@@ -39,11 +39,11 @@ class Messenger(object):
         pkmn = self.pkmn_manager.choose_pkmn(msg)
         if pkmn is not None:
             self.send_message(pkmn, channel_id)
-			
+            
     def write_whos_that_pkmn(self, channel_id):
-		txt = self.pkmn_manager.whos_that_pkmn(channel_id)
-		self.send_message(txt, channel_id)
-	
+        txt = self.pkmn_manager.whos_that_pkmn(channel_id)
+        self.send_message(txt, channel_id)
+    
     def write_pkmn_guessed_response(self, msg_text, channel_id, user_id):
         text = self.pkmn_manager.check_response(user_id, msg_text)
         if text is not None:

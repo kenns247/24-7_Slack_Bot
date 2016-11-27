@@ -56,14 +56,14 @@ class RtmEventHandler(object):
                 if 'joke' in msg_txt:
                     self.msg_writer.write_joke(event['channel'])
                 if 'attachment' in msg_txt:
-                    self.msg_writer.demo_attachment(event['channel'])				
-				if 'echo' in msg_txt:
+                    self.msg_writer.demo_attachment(event['channel'])                
+                if 'echo' in msg_txt:
                     self.msg_writer.send_message(event['channel'], msg_txt)
-				if re.search('i choose you', lower_txt):
-					self.msg_writer.write_cast_pokemon(lower_txt, channel_id)
+                if re.search('i choose you', lower_txt):
+                    self.msg_writer.write_cast_pokemon(lower_txt, channel_id)
                 if re.search('who\'?s that pokemon', lower_txt):
                     self.msg_writer.write_whos_that_pkmn(channel_id)
                 if re.search('it\'?s ', lower_txt):
-					self.msg_writer.write_pkmn_guessed_response(self, lower_txt, channel_id, user_id)
+                    self.msg_writer.write_pkmn_guessed_response(self, lower_txt, channel_id, user_id)
                 else:
                     pass
