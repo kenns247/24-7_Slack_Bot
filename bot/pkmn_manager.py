@@ -1,6 +1,5 @@
 import random
 import requests
-import dict
 from common import ResourceManager
 
 URL = 'http://pokeapi.co/api/v2/pokemon/{}/'
