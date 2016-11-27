@@ -33,7 +33,7 @@ class PokemonManager(object):
             return 'Who\'s that Pokemon? {}'.format(sprite)
 
     def check_response(self, user, channel, msg):
-		if channel in self.correct_answers:
+		if (channel in self.correct_answers):
             answer = self.correct_answers[channel]
 			tokens = msg.split()
 			if answer in tokens:
@@ -56,7 +56,4 @@ class PokemonManager(object):
         else:
             pokemon = response.json()
             if 'sprites' in pokemon:
-                result = "Go! {}!\n{}".format(
-                    pokemon['forms']['name'].title(), pokemon['sprites']['front_default']
-                )
-                return result
+                return "Go! {}!\n{}".format(pokemon['forms']['name'].title(), pokemon['sprites']['front_default'])
