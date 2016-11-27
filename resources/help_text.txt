@@ -3,5 +3,5 @@
 > `Weather` - Let me tell you the weather in Winnipeg. :rainbow:
 > `Rage/Flip/Rageflip` - Feelin' angry? Allow me to flip things for you.
 > `Unflip` - Vandalism is bad. Unflip those flipped tables.
-> 'whos that pokemon' - Are you the very best? Let's find out...
-> 'I choose you [pokemon]' - Cast a pokemon!
+> `Who's that pokemon` - Are you the very best? Let's find out...
+> `I choose you [pokemon]` - Cast a pokemon!

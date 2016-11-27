@@ -51,7 +51,7 @@ class RtmEventHandler(object):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
                 if re.search('unflip', lower_txt):
                     self.msg_writer.write_unflip(channel_id)
-                if re.search('flip|rageflip|rage', lower_txt):
+                elif re.search('flip|rageflip|rage', lower_txt):
                     self.msg_writer.write_flip(channel_id)
                 if 'joke' in msg_txt:
                     self.msg_writer.write_joke(event['channel'])
