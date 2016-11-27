@@ -33,14 +33,15 @@ class PokemonManager(object):
 
     def check_response(self, user, channel, msg):
         if (channel in self.correct_answers):
-            answer = self.correct_answers.pop(channel)
+            answer = self.correct_answers[channel]
             tokens = msg.split()
             if answer in tokens:
-                return self.guessed_correctly(user, answer)
+                return self.guessed_correctly(user, channel)
             else:
                 return '<@{}> {}'.format(user, self.neg_response_manager.get_response())
 
-    def guessed_correctly(self, user, answer):
+    def guessed_correctly(self, user, channel):
+        answer = self.correct_answers.pop(channel).title()
         random_response = self.pos_response_manager.get_response()
         return '{} It was {}! You go <@{}>!'.format(random_response, answer, user)
         
