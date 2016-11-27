@@ -15,7 +15,7 @@ class PokemonManager(object):
         if answer is None:
             return self.random_pkmn(channel)
         else:
-            return 'It was {}. Guess you aren\'t a Pokemon Master.'.format(answer)            
+            return 'It was {}. Guess you aren\'t a Pokemon Master.'.format(answer.title())            
 
     def random_pkmn(self, channel):
         num = random.randint(1, 151)
@@ -36,11 +36,11 @@ class PokemonManager(object):
             answer = self.correct_answers.pop(channel)
             tokens = msg.split()
             if answer in tokens:
-                return self.guessed_correctly(user, answer, channel)
+                return self.guessed_correctly(user, answer)
             else:
                 return '<@{}> {}'.format(user, self.neg_response_manager.get_response())
 
-    def guessed_correctly(self, user, answer, channel):
+    def guessed_correctly(self, user, answer):
         random_response = self.pos_response_manager.get_response()
         return '{} It was {}! You go <@{}>!'.format(random_response, answer, user)
         
@@ -52,8 +52,10 @@ class PokemonManager(object):
         try:
             response = requests.get(pkmn)
         except requests.exceptions.RequestException:
-            return 'Is <' + target + 'even a pokemon?'
+            return 'Nobody came out to play'
         else:
             pokemon = response.json()
             if 'sprites' in pokemon:
-                return "Go! {}!\n{}".format((pokemon['forms']['name']).title(), pokemon['sprites']['front_default'])
+                return "Go! {}!\n{}".format(pokemon['name'].title(), pokemon['sprites']['front_default'])
+            else:
+                return 'Is <' + target + 'even a pokemon?'
