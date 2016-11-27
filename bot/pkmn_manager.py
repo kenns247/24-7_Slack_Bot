@@ -1,6 +1,6 @@
 import random
 import requests
-from common import ResourceManager
+from resource_manager import ResourceManager
 
 URL = 'http://pokeapi.co/api/v2/pokemon/{}/'
 
@@ -24,7 +24,7 @@ class PokemonManager(object):
         try:
             response = requests.get(target)
         except requests.exceptions.RequestException:
-            return 'Sorry, Tyler says no. No Pokemons for you.'
+            return 'Tyler says no. No Pokemons for you.'
         else:
             pokemon = response.json()
             sprite = pokemon['sprites']['front_default']
