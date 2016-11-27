@@ -49,6 +49,10 @@ class RtmEventHandler(object):
                     self.msg_writer.write_weather(channel_id)
                 if re.search('hi|hey|hello|howdy', msg_txt):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
+                if re.search('unflip', lower_txt):
+                    self.msg_writer.write_unflip(channel_id)
+                if re.search('flip|rageflip|rage', lower_txt):
+                    self.msg_writer.write_flip(channel_id)
                 if 'joke' in msg_txt:
                     self.msg_writer.write_joke(event['channel'])
                 if 'attachment' in msg_txt:
@@ -62,4 +66,4 @@ class RtmEventHandler(object):
                 if re.search('it\'?s ', lower_txt):
 					self.msg_writer.write_pkmn_guessed_response(self, lower_txt, channel_id, user_id)
                 else:
-                    self.msg_writer.write_prompt(event['channel'])
+                    pass
