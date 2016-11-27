@@ -33,6 +33,6 @@ class SlackClients(object):
             return False
 
     def send_user_typing_pause(self, channel_id, sleep_time=3.0):
-        user_typing_json = {"type": "typing", "channel": channel_id}
+        user_typing_json = {"id": 1, "type": "typing", "channel": channel_id}
         self.rtm.server.send_to_websocket(user_typing_json)
         time.sleep(sleep_time)
