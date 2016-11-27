@@ -1,3 +1,5 @@
 > `Hi` - I'll greet back, i don't bite. :wave:
 > `Joke` - I'll tell you one of my finest jokes :laughing:
 > `Weather` - Let me tell you the weather in Winnipeg. :rainbow:
+> `Rage/Flip/Rageflip` - Feelin' angry? Allow me to flip things for you.
+> `Unflip` - Vandalism is bad. Unflip those flipped tables.
