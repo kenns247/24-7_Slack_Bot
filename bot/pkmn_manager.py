@@ -12,8 +12,8 @@ class PokemonManager(object):
         self.neg_response_manager = ResourceManager('pokemon_incorrect.txt')
 
     def whos_that_pkmn(self, channel):
-		answer = self.correct_answers.pop(channel, None)
-		if answer is None:
+        answer = self.correct_answers.pop(channel, None)
+        if answer is None:
 			return self.random_pkmn(channel)
         else:
             return 'It was {}. Guess you aren\'t a Pokemon Master.'.format(answer)			
