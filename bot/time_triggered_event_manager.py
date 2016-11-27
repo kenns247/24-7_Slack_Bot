@@ -25,7 +25,7 @@ class TimeTriggeredEventManager(object):
         # seconds and we wantz the if statement to trigger once per min only
         if(second >= 5 and second <= 15):
             if day == 'Sunday':
-                if hour == 16 and minute == 37:
+                if hour == 16 and minute == 43:
                     self.trigger_eleven_eleven()
 
     def _get_datetime():

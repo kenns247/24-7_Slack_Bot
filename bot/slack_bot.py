@@ -59,18 +59,19 @@ class SlackBot(object):
                         msg_writer.write_error(event['channel'], err_msg)
                         continue
 
-                self._auto_ping()
+                self._auto_ping(time_event_handler)
                 time.sleep(.1)
 
         else:
             logger.error('Failed to connect to RTM client with token: {}'.format(self.clients.token))
 
-    def _auto_ping(self):
+    def _auto_ping(self, time_event_handler):
         # hard code the interval to 3 seconds
         now = int(time.time())
         if now > self.last_ping + 3:
             self.clients.rtm.server.ping()
             self.last_ping = now
+            time_event_handler.trigger_timed_event()
 
     def stop(self, resource):
         """Stop any polling loops on clients, clean up any resources,
