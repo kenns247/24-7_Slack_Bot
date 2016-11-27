@@ -36,8 +36,8 @@ class PokemonManager(object):
         if (channel in self.correct_answers):
             answer = self.correct_answers[channel]
             tokens = msg.split()
-        if answer in tokens:
-            return self.guessed_correctly(user, channel)
+            if answer in tokens:
+                return self.guessed_correctly(user, channel)
             else:
                 return '<@{}> {}'.format(user, self.neg_response_manager.get_response())
 
