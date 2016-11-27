@@ -59,4 +59,4 @@ class PokemonManager(object):
             if 'sprites' in pokemon:
                 return "Go! {}!\n{}".format(pokemon['name'].title(), pokemon['sprites']['front_default'])
             else:
-                return 'Is ' + target.title() + 'even a pokemon?'
+                return 'Is ' + target.title() + ' even a pokemon?'
