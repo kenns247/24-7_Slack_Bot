@@ -13,7 +13,7 @@ class Messenger(object):
     def __init__(self, slack_clients):
         self.clients = slack_clients
         self.help_manager = ResourceManager('help_text.txt')
-		self.pkmn_manager = PokemonManager()
+        self.pkmn_manager = PokemonManager()
 
     def send_message(self, channel_id, msg):
         # in the case of Group and Private channels, RTM channel payload is a complex dictionary
