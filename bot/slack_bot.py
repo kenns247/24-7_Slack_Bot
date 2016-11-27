@@ -5,6 +5,7 @@ import traceback
 from slack_clients import SlackClients
 from messenger import Messenger
 from event_handler import RtmEventHandler
+from time_triggered_event_manager import TimeTriggeredEventManager
 
 logger = logging.getLogger(__name__)
 
@@ -46,6 +47,7 @@ class SlackBot(object):
 
             msg_writer = Messenger(self.clients)
             event_handler = RtmEventHandler(self.clients, msg_writer)
+            time_event_handler = TimeTriggeredEventManager(self.clients, msg_writer)
 
             while self.keep_running:
                 for event in self.clients.rtm.rtm_read():
