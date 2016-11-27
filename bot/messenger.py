@@ -20,6 +20,7 @@ class Messenger(object):
         if isinstance(channel_id, dict):
             channel_id = channel_id['id']
         channel = self.clients.rtm.server.channels.find(channel_id)
+        self.clients.send_user_typing_pause(channel)
         channel.send_message(msg)
 
     def write_help_message(self, channel_id):
