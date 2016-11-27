@@ -57,4 +57,4 @@ class PokemonManager(object):
         else:
             pokemon = response.json()
             if 'sprites' in pokemon:
-                return "Go! {}!\n{}".format(pokemon['forms']['name'].title(), pokemon['sprites']['front_default'])
+                return "Go! {}!\n{}".format((pokemon['forms']['name']).title(), pokemon['sprites']['front_default'])
