@@ -127,7 +127,7 @@ class Messenger(object):
             return 'you'
         elif target == 'yourself' or self.__is_flip_mention(target):
             return 'Flip Gunderson'
-        elif self._is_kiera_mention(target):
+        elif self.__is_kiera_mention(target):
             return 'Kiera'
         elif '<@' in target:
             return target.upper()
