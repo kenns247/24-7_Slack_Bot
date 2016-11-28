@@ -14,8 +14,15 @@ class TimeTriggeredEventManager(object):
         self.channel_manager = ChannelManager(clients)
 
     def trigger_eleven_eleven(self):
-        channel_id = self.channel_manager.get_channel_id('flip_testing')
+        channel_id = self.channel_manager.get_channel_id('general')
         response = '<!channel> 11:11 is in 11 minutes!! Grab some :coffee: and then hit the bleachers!'
+        self.msg_writer.send_message(channel_id, response)
+
+    def trigger_standup(self):
+        channel_id = self.channel_manager.get_channel_id('flip_testing')
+        response = '<!channel> Time for stand-up!!'
+        emojis = [':dancers:', ':dancer:', ':raised_hands:', ':up:']
+        response = '{} {}'.format(response, random.choice(emojis))
         self.msg_writer.send_message(channel_id, response)
 
     def trigger_timed_event(self):
@@ -23,8 +30,11 @@ class TimeTriggeredEventManager(object):
         # leaves 10-ish seconds to trigger since method is called every 10-ish
         # seconds and we wantz the if statement to trigger once per min only
         # if(second >= 0 and second <= 10):
-        if day == 'Sunday':
-            if hour == 19 and minute == 28 and second == 0:
+        if (day != 'Saturday' and day != 'Sunday'):
+            if hour == 19 and minute == 45 and second == 0:
+                self.trigger_standup()
+        if day == 'Monday':
+            if hour == 11 and minute == 0 and second == 0:
                 self.trigger_eleven_eleven()
 
     def _get_datetime(self):
