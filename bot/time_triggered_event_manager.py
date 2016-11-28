@@ -32,7 +32,7 @@ class TimeTriggeredEventManager(object):
         # if(second >= 0 and second <= 10):
         # if (day != 'Saturday' and day != 'Sunday'):
         if day == 'Sunday':
-            if hour == 19 and minute == 49 and second == 0:
+            if hour == 19 and minute == 53 and second > 0 and second < 15:
                 self.trigger_standup()
         if day == 'Monday':
             if hour == 11 and minute == 0 and second == 0:
