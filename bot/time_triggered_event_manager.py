@@ -31,8 +31,8 @@ class TimeTriggeredEventManager(object):
         # seconds and we wantz the if statement to trigger once per min only
         # if(second >= 0 and second <= 10):
         # if (day != 'Saturday' and day != 'Sunday'):
-        if day == 'Sunday'
-            if hour == 19 and minute == 48 and second == 0:
+        if day == 'Sunday':
+            if hour == 19 and minute == 49 and second == 0:
                 self.trigger_standup()
         if day == 'Monday':
             if hour == 11 and minute == 0 and second == 0:
