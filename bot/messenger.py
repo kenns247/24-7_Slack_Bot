@@ -10,6 +10,7 @@ from pkmn_manager import PokemonManager
 SASS_FLAG = re.compile('sass[a-z]* ')
 logger = logging.getLogger(__name__)
 
+
 class Messenger(object):
     def __init__(self, slack_clients):
         self.clients = slack_clients
