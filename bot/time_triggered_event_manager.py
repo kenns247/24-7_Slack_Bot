@@ -19,13 +19,12 @@ class TimeTriggeredEventManager(object):
         self.msg_writer.send_message(channel_id, response)
 
     def trigger_timed_event(self):
-        day, hour, minute, second = _get_datetime()
-
+        day, hour, minute, second = self._get_datetime()
         # leaves 10-ish seconds to trigger since method is called every 10-ish
         # seconds and we wantz the if statement to trigger once per min only
         if(second >= 5 and second <= 15):
             if day == 'Sunday':
-                if hour == 16 and minute == 43:
+                if hour == 18 and minute == 47:
                     self.trigger_eleven_eleven()
 
     def _get_datetime():
