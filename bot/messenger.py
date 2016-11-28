@@ -2,7 +2,6 @@
 
 import logging
 import random
-import os.path
 import weather_manager
 from resource_manager import ResourceManager
 
@@ -98,7 +97,7 @@ class Messenger(object):
         self.send_message(channel_id, self.explanation_manager.get_response())
 
     def write_sass(self, msg_txt, channel_id):
-        target = __get_target(SASS_FLAG, msg_txt)
+        target = self.__get_target(SASS_FLAG, msg_txt)
         if target == 'Flip Gunderson':
             prefix = 'Huh, nice try. '
             target = 'you'
@@ -110,22 +109,22 @@ class Messenger(object):
 
 # PRIVATE METHODS:
 
-    def __get_target(flag, msg_txt):
+    def __get_target(self, flag, msg_txt):
         token = re.split(flag, msg_txt.lower())
         target = ""
         if len(token) > 1:
-            target = __format_target(token[1])
+            target = self.__format_target(token[1])
         return target
 
-    def __format_target(target):
+    def __format_target(self, target):
         if target == 'me':
             return 'you'
-        elif target == 'yourself' or __is_flip_mention(target):
+        elif target == 'yourself' or self.__is_flip_mention(target):
             return 'Flip Gunderson'
         elif '<@' in target:
             return target.upper()
         else:
             return target.title()
 
-    def __is_flip_mention(msg_text):
+    def __is_flip_mention(self, msg_text):
         return re.search('?flip', msg_text.lower())
