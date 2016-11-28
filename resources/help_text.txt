@@ -1,4 +1,5 @@
-> `Hi` - I'll greet back, i don't bite. :wave:
+> `Help` - Okay, smart guy. You obviously just used this one :expressionless:
+> `Hi/Hey/Hello/Howdy` - I'll greet back, I don't bite. :wave:
 > `Joke` - I'll tell you one of my finest jokes :laughing:
 > `Weather` - Let me tell you the weather in Winnipeg. :rainbow:
 > `Rage/Flip/Rageflip/Tableflip` - Feelin' angry? Allow me to flip things for you.
@@ -8,7 +9,7 @@
 > `Who <question>?` - I'll tell you who's to blame for your question.
 > `Why <question>?` - I'll explain everything. Or maybe I'll just blame someone ¯\_(ツ)_/¯
 > `Sass <name>` - I'll be sure to sass <name> until the sun burns out. :smiling_imp:
-I have strong opinions on the following topics. I'll respond even without being mentioned! :smiley:
+I also have strong opinions about some things. I'll respond to these words even without being mentioned.
 > `Trump` - #MAGA :trump:
 I also do some helpful things, like give you reminders about the following events:
 > `Stand-up` - Weekday's @ 10:30am
