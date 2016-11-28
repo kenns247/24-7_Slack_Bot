@@ -20,7 +20,7 @@ class ChannelManager:
         elif isinstance(identifier, dict):
             return identifier['id']
         else:
-            return self.channel_ids['flip-testing']
+            return self.channel_ids['flip_testing']
 
     def get_channel_by_id(self, channel_id):
         if channel_id in self.channel_names:
