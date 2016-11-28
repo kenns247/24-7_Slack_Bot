@@ -47,7 +47,7 @@ class RtmEventHandler(object):
                     self.msg_writer.write_help_message(event['channel'])
                 if re.search('weather', lower_txt):
                     self.msg_writer.write_weather(channel_id)
-                if re.search('hi|hey|hello|howdy', msg_txt):
+                if re.search('hi |hey|hello|howdy', msg_txt):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
                 if re.search('unflip', lower_txt):
                     self.msg_writer.write_unflip(channel_id)

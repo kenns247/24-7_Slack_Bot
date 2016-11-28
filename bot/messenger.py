@@ -101,12 +101,15 @@ class Messenger(object):
 
     def write_sass(self, msg_txt, channel_id):
         target = self.__get_target(SASS_FLAG, msg_txt)
-        if target == 'Flip Gunderson':
-            prefix = 'Huh, nice try. '
-            target = 'you'
+        if target == 'Kiera':
+            sass = 'No. I like her.'
         else:
-            prefix = ''
-        sass = '{}Hey, {}! {}'.format(prefix, target, self.sass_manager.get_response())
+            if target == 'Flip Gunderson':
+                prefix = 'Huh, nice try. '
+                target = 'you'
+            else:
+                prefix = ''
+            sass = '{}Hey, {}! {}'.format(prefix, target, self.sass_manager.get_response())
         self.send_message(channel_id, sass)
 
 
@@ -124,6 +127,8 @@ class Messenger(object):
             return 'you'
         elif target == 'yourself' or self.__is_flip_mention(target):
             return 'Flip Gunderson'
+        elif self._is_kiera_mention(target):
+            return 'Kiera'
         elif '<@' in target:
             return target.upper()
         else:
@@ -131,3 +136,6 @@ class Messenger(object):
 
     def __is_flip_mention(self, msg_text):
         return re.search('flip', msg_text.lower())
+
+    def __is_kiera_mention(self, msg_text):
+        return re.search('kiera', msg_text.lower())
