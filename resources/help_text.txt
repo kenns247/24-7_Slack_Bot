@@ -8,8 +8,8 @@
 > `Who <question>?` - I'll tell you who's to blame for your question.
 > `Why <question>?` - I'll explain everything. Or maybe I'll just blame someone ¯\_(ツ)_/¯
 > `Sass <name>` - I'll be sure to sass <name> until the sun burns out. :smiling_imp:
-I also will react to these words even if I'm not mentioned, because I like to _bot_ in sometimes! :smiley:
+I have strong opinions on the following topics. I'll respond even without being mentioned! :smiley:
 > `Trump` - #MAGA :trump:
-I also do other helpful things, like give you reminders about the following things:
-> `11:11` - Monday's 11:00am
-> `Stand-up` - Weekday's at 10:30am
+I also do some helpful things, like give you reminders about the following events:
+> `Stand-up` - Weekday's @ 10:30am
+> `11:11` - Monday's @ 11:00am
