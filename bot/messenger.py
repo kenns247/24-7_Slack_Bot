@@ -129,4 +129,4 @@ class Messenger(object):
             return target.title()
 
     def __is_flip_mention(self, msg_text):
-        return re.search('?flip', msg_text.lower())
+        return re.search('flip', msg_text.lower())
