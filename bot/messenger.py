@@ -95,3 +95,36 @@ class Messenger(object):
 
     def write_explanation(self, channel_id):
         self.send_message(channel_id, self.explanation_manager.get_response())
+
+    def write_sass(self, msg_txt, channel_id):
+        target = __get_target(SASS_FLAG, msg_txt)
+        if target == 'Flip Gunderson':
+            prefix = 'Huh, nice try. '
+            target = 'you'
+        else:
+            prefix = ''
+        sass = '{}Hey, {}! {}'.format(prefix, target, self.sass_manager.get_response())
+        self.send_message(channel_id, sass)
+
+
+# PRIVATE METHODS:
+
+    def __get_target(flag, msg_txt):
+        token = re.split(flag, msg_txt.lower())
+        target = ""
+        if len(token) > 1:
+            target = __format_target(token[1])
+        return target
+
+    def __format_target(target):
+        if target == 'me':
+            return 'you'
+        elif target == 'yourself' or __is_flip_mention(target):
+            return 'Flip Gunderson'
+        elif '<@' in target:
+            return target.upper()
+        else:
+            return target.title()
+
+    def __is_flip_mention(msg_text):
+        return re.search(' ?flip', msg_text.lower())

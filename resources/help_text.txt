@@ -1,7 +1,10 @@
 > `Hi` - I'll greet back, i don't bite. :wave:
 > `Joke` - I'll tell you one of my finest jokes :laughing:
 > `Weather` - Let me tell you the weather in Winnipeg. :rainbow:
-> `Rage/Flip/Rageflip` - Feelin' angry? Allow me to flip things for you.
+> `Rage/Flip/Rageflip/Tableflip` - Feelin' angry? Allow me to flip things for you.
 > `Unflip` - Vandalism is bad. Unflip those flipped tables.
 > `Who's that pokemon` - Are you the very best? Let's find out...
 > `I choose you [pokemon]` - Cast a pokemon!
+> `Who <question>?` - I'll tell you who's to blame for your question.
+> `Why <question>?` - I'll explain everything. Or maybe I'll just blame someone ¯\_(ツ)_/¯
+> `Sass <name>` - I'll be sure to sass <name> until the sun burns out. :smiling_imp:

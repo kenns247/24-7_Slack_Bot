@@ -43,7 +43,7 @@ class RtmEventHandler(object):
 
             if self.clients.is_bot_mention(msg_txt):
                 # e.g. user typed: "@pybot tell me a joke!"
-                if 'help' in msg_txt:
+                if re.search('help', lower_txt):
                     self.msg_writer.write_help_message(event['channel'])
                 if re.search('weather', lower_txt):
                     self.msg_writer.write_weather(channel_id)
@@ -51,13 +51,13 @@ class RtmEventHandler(object):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
                 if re.search('unflip', lower_txt):
                     self.msg_writer.write_unflip(channel_id)
-                elif re.search('flip|rageflip|rage', lower_txt):
+                elif re.search('rage|flip|rageflip|tableflip', lower_txt):
                     self.msg_writer.write_flip(channel_id)
-                if 'joke' in msg_txt:
+                if re.search('joke', lower_txt):
                     self.msg_writer.write_joke(event['channel'])
-                if 'attachment' in msg_txt:
+                if re.search('attachment', lower_txt):
                     self.msg_writer.demo_attachment(event['channel'])                
-                if 'echo' in msg_txt:
+                if re.search('echo', lower_txt):
                     self.msg_writer.send_message(event['channel'], msg_txt)
                 if re.search('i choose you', lower_txt):
                     self.msg_writer.write_cast_pokemon(lower_txt, channel_id)
@@ -65,9 +65,11 @@ class RtmEventHandler(object):
                     self.msg_writer.write_whos_that_pkmn(channel_id)
                 if re.search('it\'?s ', lower_txt):
                     self.msg_writer.write_pkmn_guessed_response(lower_txt, channel_id, user_id)
-                elif re.search('who', lower_txt):
+                if re.search('sass ', lower_txt):
+                    self.msg_writer.write_sass(msg_txt, channel_id)
+                elif re.search('who ', lower_txt):
                     self.msg_writer.write_blame(channel_id)
-                elif re.search('why', lower_txt):
+                elif re.search('why ', lower_txt):
                     self.msg_writer.write_explanation(channel_id)
                 else:
                     pass
