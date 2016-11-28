@@ -19,6 +19,7 @@ class Messenger(object):
         self.blame_manager = ResourceManager('blames.txt')
         self.explanation_manager = ResourceManager('explanations.txt')
         self.sass_manager = ResourceManager('sass.txt')
+        self.trump_manager = ResourceManager('trump.txt')
 
     def send_message(self, channel_id, msg):
         # in the case of Group and Private channels, RTM channel payload is a complex dictionary
@@ -111,6 +112,9 @@ class Messenger(object):
                 prefix = ''
             sass = '{}Hey, {}! {}'.format(prefix, target, self.sass_manager.get_response())
         self.send_message(channel_id, sass)
+
+    def write_trump(self, channel_id):
+        self.send_message(channel_id, self.trump_manager.get_response())
 
 
 # PRIVATE METHODS:
