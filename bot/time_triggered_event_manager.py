@@ -22,10 +22,10 @@ class TimeTriggeredEventManager(object):
         day, hour, minute, second = self._get_datetime()
         # leaves 10-ish seconds to trigger since method is called every 10-ish
         # seconds and we wantz the if statement to trigger once per min only
-        if(second >= 0 and second <= 10):
-            if day == 'Sunday':
-                if hour == 19 and minute == 20:
-                    self.trigger_eleven_eleven()
+        # if(second >= 0 and second <= 10):
+        if day == 'Sunday':
+            if hour == 19 and minute == 28 and second == 0:
+                self.trigger_eleven_eleven()
 
     def _get_datetime(self):
         curr_datetime = datetime.utcnow() - timedelta(hours=HR_DIF_NO_DST)
