@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from channel_manager import ChannelManager
 import time
+import random
 
 HR_DIF_DST = 5  # for Winnipeg
 HR_DIF_NO_DST = 6  # for Winnipeg
@@ -32,7 +33,7 @@ class TimeTriggeredEventManager(object):
         # if(second >= 0 and second <= 10):
         # if (day != 'Saturday' and day != 'Sunday'):
         if day == 'Sunday':
-            if hour == 19 and minute == 53 and second > 0 and second < 15:
+            if hour == 19 and minute == 57 and second > 0 and second < 15:
                 self.trigger_standup()
         if day == 'Monday':
             if hour == 11 and minute == 0 and second == 0:
