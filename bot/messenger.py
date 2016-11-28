@@ -4,9 +4,9 @@ import logging
 import random
 import weather_manager
 from resource_manager import ResourceManager
-
 from pkmn_manager import PokemonManager
 
+SASS_FLAG = re.compile('sass[a-z]* ')
 logger = logging.getLogger(__name__)
 
 class Messenger(object):
