@@ -68,7 +68,7 @@ class SlackBot(object):
     def _auto_ping(self, time_event_handler):
         # hard code the interval to 3 seconds
         now = int(time.time())
-        if now > self.last_ping + 3:
+        if now > self.last_ping + 10:
             self.clients.rtm.server.ping()
             self.last_ping = now
             time_event_handler.trigger_timed_event()

@@ -28,12 +28,13 @@ class TimeTriggeredEventManager(object):
 
     def trigger_timed_event(self):
         day, hour, minute, second = self._get_datetime()
+        
         # leaves 10-ish seconds to trigger since method is called every 10-ish
         # seconds and we wantz the if statement to trigger once per min only
-        if(second >= 5 and second <= 10):
+        if(second >= 5 and second <= 15):
         # if (day != 'Saturday' and day != 'Sunday'):
             if day == 'Sunday':
-                if hour == 20 and minute == 2:
+                if hour == 20 and minute == 17:
                     self.trigger_standup()
             if day == 'Monday':
                 if hour == 11 and minute == 0:
