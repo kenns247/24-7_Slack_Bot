@@ -17,6 +17,7 @@ class Messenger(object):
         self.pkmn_manager = PokemonManager()
         self.blame_manager = ResourceManager('blames.txt')
         self.explanation_manager = ResourceManager('explanations.txt')
+        self.sass_manager = ResourceManager('sass.txt')
 
     def send_message(self, channel_id, msg):
         # in the case of Group and Private channels, RTM channel payload is a complex dictionary
