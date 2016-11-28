@@ -34,7 +34,7 @@ class Messenger(object):
         count = self.help_manager.get_count()
         txt = (
             "I'm Flip Gunderson.  I'll *_respond_* to the following {} commands:\n{}"
-        ).format(count, help_txt)
+        ).format(count-1, help_txt)
         self.send_message(channel_id, txt)
 
     def write_greeting(self, channel_id, user_id):
