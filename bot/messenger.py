@@ -14,6 +14,8 @@ class Messenger(object):
         self.clients = slack_clients
         self.help_manager = ResourceManager('help_text.txt')
         self.pkmn_manager = PokemonManager()
+        self.blame_manager = ResourceManager('blames.txt')
+        self.explanation_manager = ResourceManager('explanations.txt')
 
     def send_message(self, channel_id, msg):
         # in the case of Group and Private channels, RTM channel payload is a complex dictionary
@@ -87,3 +89,9 @@ class Messenger(object):
 
     def write_unflip(self, channel_id):
         self.send_message(channel_id, u"┬─┬ノ( º _ ºノ)")
+
+    def write_blame(self, channel_id):
+        self.send_message(channel_id, self.blame_manager.get_response())
+
+    def write_explanation(self, channel_id):
+        self.send_message(channel_id, self.explanation_manager.get_response())

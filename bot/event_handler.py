@@ -65,5 +65,9 @@ class RtmEventHandler(object):
                     self.msg_writer.write_whos_that_pkmn(channel_id)
                 if re.search('it\'?s ', lower_txt):
                     self.msg_writer.write_pkmn_guessed_response(lower_txt, channel_id, user_id)
+                elif re.search('who', lower_txt):
+                    self.msg_writer.write_blame(channel_id)
+                elif re.search('why', lower_txt):
+                    self.msg_writer.write_explanation(channel_id)
                 else:
                     pass
