@@ -2,6 +2,7 @@
 
 import logging
 import random
+import os.path
 import weather_manager
 from resource_manager import ResourceManager
 
@@ -127,4 +128,4 @@ class Messenger(object):
             return target.title()
 
     def __is_flip_mention(msg_text):
-        return re.search(' ?flip', msg_text.lower())
+        return re.search('?flip', msg_text.lower())
