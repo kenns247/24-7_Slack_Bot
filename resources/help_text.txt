@@ -8,3 +8,5 @@
 > `Who <question>?` - I'll tell you who's to blame for your question.
 > `Why <question>?` - I'll explain everything. Or maybe I'll just blame someone ¯\_(ツ)_/¯
 > `Sass <name>` - I'll be sure to sass <name> until the sun burns out. :smiling_imp:
+I also will react to these words even if I'm not mentioned, because I like to _bot_ in sometimes! :smiley:
+> `Trump` - #MAGA :trump:
