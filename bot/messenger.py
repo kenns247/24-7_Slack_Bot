@@ -2,6 +2,7 @@
 
 import logging
 import random
+import re
 import weather_manager
 from resource_manager import ResourceManager
 from pkmn_manager import PokemonManager
