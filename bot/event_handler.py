@@ -73,7 +73,7 @@ class RtmEventHandler(object):
                     self.msg_writer.write_explanation(channel_id)
             
             # Triggers that don't require @flip mentions
-            else:
+            elif self.clients.is_bot_mention(msg_txt) or !self.clients.is_bot_mention(msg_txt):
                 if re.search('trump', lower_txt):
                     self.msg_writer.write_trump(channel_id)
                 else:
