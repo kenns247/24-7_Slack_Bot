@@ -45,51 +45,51 @@ class RtmEventHandler(object):
             if self.clients.is_bot_mention(msg_txt):
                 if re.search('help', lower_txt):
                     self.msg_writer.write_help_message(event['channel'])
-                    break
+                    return
                 if re.search('weather', lower_txt):
                     self.msg_writer.write_weather(channel_id)
-                    break
+                    return
                 if re.search('hi |hey|hello|howdy', msg_txt):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
-                    break
+                    return
                 if re.search('unflip', lower_txt):
                     self.msg_writer.write_unflip(channel_id)
-                    break
+                    return
                 elif re.search('rage|flip|rageflip|tableflip', lower_txt):
                     self.msg_writer.write_flip(channel_id)
-                    break
+                    return
                 if re.search('joke', lower_txt):
                     self.msg_writer.write_joke(event['channel'])
-                    break
+                    return
                 if re.search('attachment', lower_txt):
                     self.msg_writer.demo_attachment(event['channel'])
-                    break       
+                    return       
                 if re.search('echo', lower_txt):
                     self.msg_writer.send_message(event['channel'], msg_txt)
-                    break
+                    return
                 if re.search('i choose you', lower_txt):
                     self.msg_writer.write_cast_pokemon(lower_txt, channel_id)
-                    break
+                    return
                 if re.search('who\'?s that pokemon', lower_txt):
                     self.msg_writer.write_whos_that_pkmn(channel_id)
-                    break
+                    return
                 if re.search('it\'?s ', lower_txt):
                     self.msg_writer.write_pkmn_guessed_response(lower_txt, channel_id, user_id)
-                    break
+                    return
                 if re.search('sass ', lower_txt):
                     self.msg_writer.write_sass(msg_txt, channel_id)
-                    break
+                    return
                 elif re.search('who', lower_txt):
                     self.msg_writer.write_blame(channel_id)
-                    break
+                    return
                 elif re.search('why ', lower_txt):
                     self.msg_writer.write_explanation(channel_id)
-                    break
+                    return
 
             # Triggers that don't require @flip mentions
             if re.search('trump', lower_txt):
                 self.msg_writer.write_trump(channel_id)
-                pass
+                return
             
             # Else ignore it
             else:
