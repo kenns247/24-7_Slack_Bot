@@ -34,8 +34,9 @@ class RtmEventHandler(object):
 
     def _handle_message(self, event):
         # Subtype event handling
-        if event['subtype'] == 'channel_leave':
-            self.msg_writer.write_left_channel(event['channel'])
+        if 'subtype' in event:
+            if event['subtype'] == 'channel_leave':
+                self.msg_writer.write_left_channel(event['channel'])
 
         # Filter out messages from the bot itself, and from non-users (eg. webhooks)
         if ('user' in event) and (not self.clients.is_message_from_me(event['user'])):
