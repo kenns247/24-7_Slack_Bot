@@ -41,6 +41,10 @@ class RtmEventHandler(object):
             channel_id = event['channel']
             user_id = event['user']
 
+            # Triggers that don't require @flip mentions
+            if re.search('trump', lower_txt):
+                self.msg_writer.write_trump(channel_id)
+
             # Triggers that require @flip mentions
             if self.clients.is_bot_mention(msg_txt):
                 if re.search('help', lower_txt):
@@ -71,10 +75,5 @@ class RtmEventHandler(object):
                     self.msg_writer.write_blame(channel_id)
                 elif re.search('why ', lower_txt):
                     self.msg_writer.write_explanation(channel_id)
-            
-            # Triggers that don't require @flip mentions
-            elif self.clients.is_bot_mention(msg_txt) or not self.clients.is_bot_mention(msg_txt):
-                if re.search('trump', lower_txt):
-                    self.msg_writer.write_trump(channel_id)
                 else:
                     pass
