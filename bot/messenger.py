@@ -43,7 +43,7 @@ class Messenger(object):
         self.send_message(channel_id, txt)
 
     def write_left_channel(self, channel_id):
-        response = "I WOULD HAVE LOVED YOUUUUU~"
+        response = "_I WOULD HAVE LOVED YOUUUUU!!_"
         self.send_message(channel_id, response)
 
     def write_cast_pokemon(self, msg, channel_id):
