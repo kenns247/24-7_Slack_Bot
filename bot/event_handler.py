@@ -29,6 +29,8 @@ class RtmEventHandler(object):
         elif event_type == 'group_joined':
             # you joined a private group
             self.msg_writer.write_help_message(event['channel'])
+        elif event['subtype'] == 'channel_leave':
+            self.msg_writer.write_left_channel(event['channel'])
         else:
             pass
 

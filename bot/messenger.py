@@ -42,6 +42,10 @@ class Messenger(object):
         txt = '{}, <@{}>!'.format(random.choice(greetings), user_id)
         self.send_message(channel_id, txt)
 
+    def write_left_channel(self, channel_id):
+        response = "I WOULD HAVE LOVED YOUUUUU~"
+        self.send_message(channel_id, response)
+
     def write_cast_pokemon(self, msg, channel_id):
         pkmn = self.pkmn_manager.cast_pkmn(msg)
         if pkmn is not None:
