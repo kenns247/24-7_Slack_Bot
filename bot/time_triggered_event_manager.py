@@ -29,7 +29,7 @@ class TimeTriggeredEventManager(object):
         self.msg_writer.send_message(channel_id, response)
     
     def trigger_teatime(self):
-        channel_id = self.channel_manager.get_channel_id('flip_testing')
+        channel_id = self.channel_manager.get_channel_id('general')
         channel = '<!channel>'
         phrase = self.tea_manager.get_response()
         tea_emoji = ':tea:'
@@ -48,7 +48,7 @@ class TimeTriggeredEventManager(object):
                 if hour == 10 and minute == 30:
                     self.trigger_standup()
                 # Tea Time
-                if hour == 21 and minute == 23:
+                if hour == 15 and minute == 0:
                     self.trigger_teatime()
             if day == 'Monday':
                 # 11:11
