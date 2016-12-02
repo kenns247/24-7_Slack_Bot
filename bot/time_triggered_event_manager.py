@@ -50,6 +50,7 @@ class TimeTriggeredEventManager(object):
                 # Tea Time
                 if hour == 15 and minute == 0:
                     self.trigger_teatime()
+                # Wake Up Randoms
             if day == 'Monday':
                 # 11:11
                 if hour == 11 and minute == 0:
