@@ -15,6 +15,7 @@ class TimeTriggeredEventManager(object):
         self.msg_writer = msg_writer
         self.channel_manager = ChannelManager(clients)
         self.tea_manager = ResourceManager('tea.txt')
+        self.wake_me_up_mananger = ResourceManager('wake_me_up.txt')
 
     def trigger_eleven_eleven(self):
         channel_id = self.channel_manager.get_channel_id('general')
@@ -36,6 +37,11 @@ class TimeTriggeredEventManager(object):
         response = '{} {} {}'.format(channel, phrase, tea_emoji)
         self.msg_writer.send_message(channel_id, response)
 
+    def trigger_wake_me_up(self):
+        # if random.random() < 0.02:
+        channel_id = self.channel_manager.get_channel_id('flip_testing')
+        response = self.wake_me_up_mananger.get_response()
+        self.msg_writer.send_message(channel_id, response)
 
     def trigger_timed_event(self):
         day, hour, minute, second = self._get_datetime()
@@ -43,14 +49,16 @@ class TimeTriggeredEventManager(object):
         # leaves 10-ish seconds to trigger since method is called every 10-ish
         # seconds and we wantz the if statement to trigger once per min only
         if(second >= 5 and second <= 15):
+            # Wake Up Randoms
+            if hour >= 9 and hour <= 17 and minute >= 0 and minute <= 1
+                self.trigger_wake_me_up()
             if (day != 'Saturday' and day != 'Sunday'):
                 # Stand Up
                 if hour == 10 and minute == 30:
                     self.trigger_standup()
                 # Tea Time
                 if hour == 15 and minute == 0:
-                    self.trigger_teatime()
-                # Wake Up Randoms
+                    self.trigger_teatime()                
             if day == 'Monday':
                 # 11:11
                 if hour == 11 and minute == 0:
