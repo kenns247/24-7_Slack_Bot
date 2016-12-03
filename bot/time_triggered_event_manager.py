@@ -38,10 +38,10 @@ class TimeTriggeredEventManager(object):
         self.msg_writer.send_message(channel_id, response)
 
     def trigger_wake_me_up(self):
-        # if random.random() < 0.02:
-        channel_id = self.channel_manager.get_channel_id('flip_testing')
-        response = self.wake_me_up_mananger.get_response()
-        self.msg_writer.send_message(channel_id, response)
+        if random.random() < 0.5:
+            channel_id = self.channel_manager.get_channel_id('flip_testing')
+            response = self.wake_me_up_mananger.get_response()
+            self.msg_writer.send_message(channel_id, response)
 
     def trigger_timed_event(self):
         day, hour, minute, second = self._get_datetime()
@@ -50,7 +50,7 @@ class TimeTriggeredEventManager(object):
         # seconds and we wantz the if statement to trigger once per min only
         if(second >= 5 and second <= 15):
             # Wake Up Randoms
-            if hour >= 9 and hour <= 17 and minute >= 0 and minute <= 1
+            if hour >= 9 and hour <= 17 and minute >= 0 and minute <= 5
                 self.trigger_wake_me_up()
             if (day != 'Saturday' and day != 'Sunday'):
                 # Stand Up
