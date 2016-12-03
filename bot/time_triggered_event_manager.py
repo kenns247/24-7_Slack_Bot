@@ -50,7 +50,7 @@ class TimeTriggeredEventManager(object):
         # seconds and we wantz the if statement to trigger once per min only
         if(second >= 5 and second <= 15):
             # Wake Up Randoms
-            if hour >= 9 and hour <= 17 and minute >= 0 and minute <= 5
+            if hour >= 9 and hour <= 17 and minute >= 0 and minute <= 5:
                 self.trigger_wake_me_up()
             if (day != 'Saturday' and day != 'Sunday'):
                 # Stand Up
