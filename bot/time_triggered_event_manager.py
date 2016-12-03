@@ -42,7 +42,7 @@ class TimeTriggeredEventManager(object):
         self.msg_writer.send_message(channel_id, response)
 
     def trigger_wake_me_up(self):
-        if random.random() < 0.25:
+        if random.random() < 0.01:
             global HAS_TRIGGERED_THIS_HOUR
             HAS_TRIGGERED_THIS_HOUR = True
             channel_id = self.channel_manager.get_channel_id('flip_testing')
@@ -60,7 +60,7 @@ class TimeTriggeredEventManager(object):
                 global HAS_TRIGGERED_THIS_HOUR
                 HAS_TRIGGERED_THIS_HOUR = False
             # Wake Up Randoms
-            if hour >= 9 and hour <= 17 and HAS_TRIGGERED_THIS_HOUR == False:
+            if hour >= 9 and hour <= 24 and HAS_TRIGGERED_THIS_HOUR == False:
                 self.trigger_wake_me_up()
             if (day != 'Saturday' and day != 'Sunday'):
                 # Stand Up
