@@ -9,6 +9,8 @@ HR_DIF_NO_DST = 6  # for Winnipeg
 MIN_PER_HOUR = 60
 HR_PER_DAY = 24
 
+HAS_TRIGGERED_THIS_HOUR = False
+
 class TimeTriggeredEventManager(object):
     def __init__(self, clients, msg_writer):
         self.clients = clients
@@ -38,19 +40,23 @@ class TimeTriggeredEventManager(object):
         self.msg_writer.send_message(channel_id, response)
 
     def trigger_wake_me_up(self):
-        if random.random() < 0.5:
+        if random.random() < 0.01:
+            HAS_TRIGGERED_THIS_HOUR = True
             channel_id = self.channel_manager.get_channel_id('flip_testing')
             response = self.wake_me_up_mananger.get_response()
             self.msg_writer.send_message(channel_id, response)
 
     def trigger_timed_event(self):
         day, hour, minute, second = self._get_datetime()
-
+        
         # leaves 10-ish seconds to trigger since method is called every 10-ish
         # seconds and we wantz the if statement to trigger once per min only
         if(second >= 5 and second <= 15):
+            # reset triggered value to false every hour
+            if minute == 0:
+                HAS_TRIGGERED_THIS_HOUR = False
             # Wake Up Randoms
-            if hour >= 9 and hour <= 17 and minute >= 0 and minute <= 5:
+            if hour >= 9 and hour <= 17 and HAS_TRIGGERED_THIS_HOUR == False:
                 self.trigger_wake_me_up()
             if (day != 'Saturday' and day != 'Sunday'):
                 # Stand Up
