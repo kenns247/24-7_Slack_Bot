@@ -9,7 +9,7 @@ HR_DIF_NO_DST = 6  # for Winnipeg
 MIN_PER_HOUR = 60
 HR_PER_DAY = 24
 
-HAS_TRIGGERED_THIS_HOUR = False
+global HAS_TRIGGERED_THIS_HOUR = False
 
 class TimeTriggeredEventManager(object):
     def __init__(self, clients, msg_writer):
