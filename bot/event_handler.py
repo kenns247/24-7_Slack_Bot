@@ -93,6 +93,8 @@ class RtmEventHandler(object):
                 elif re.search('apologize', lower_txt):
                     self.msg_writer.write_apologize(channel_id)
                     return
+                elif re.search('watchlist|watch list', lower_txt):
+                    self.msg_writer.write_watchlist(channel_id)
 
             # Triggers that don't require @flip mentions
             if re.search('trump', lower_txt):
