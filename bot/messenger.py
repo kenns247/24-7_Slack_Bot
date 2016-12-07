@@ -25,6 +25,7 @@ class Messenger(object):
         self.added_to_watchlist_manager = ResourceManager('added_to_watchlist.txt')
         self.just_do_it_manager = ResourceManager('just_do_it.txt')
         self.get_it_together_manager = ResourceManager('get_it_together.txt')
+        self.flip_gunderson_manager = ResourceManager('flip_gunderson.txt')
 
     def send_message(self, channel_id, msg):
         # in the case of Group and Private channels, RTM channel payload is a complex dictionary
@@ -139,6 +140,9 @@ class Messenger(object):
 
     def write_together(self, channel_id):
         self.send_message(channel_id, self.get_it_together_manager.get_response())
+
+    def write_flip_gunderson(self, channel_id):
+        self.send_message(channel_id, self.flip_gunderson_manager.get_response())
 
 
 # PRIVATE METHODS:

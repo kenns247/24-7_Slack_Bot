@@ -96,6 +96,11 @@ class RtmEventHandler(object):
                 elif re.search('apologize', lower_txt):
                     self.msg_writer.write_apologize(channel_id)
                     return
+                    
+            # Triggers that CAN'T have @flip mention
+            elif re.search('flip', lower_txt):
+                self.msg_writer.write_flip_gunderson(channel_id)
+                return
                 
             # Triggers that don't require @flip mentions
             if re.search('trump', lower_txt):
