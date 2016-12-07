@@ -78,9 +78,9 @@ class TimeTriggeredEventManager(object):
                 # 11:11
                 if hour == 11 and minute == 0:
                     self.trigger_eleven_eleven()
-            if day == 'Tuesday':
+            if day == 'Thursday':
                 # Shannons 
-                if hour == 21 and minute == 17:
+                if hour == 17 and minute == 30:
                     self.trigger_shannons()
 
     def _get_datetime(self):
