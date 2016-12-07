@@ -49,6 +49,11 @@ class TimeTriggeredEventManager(object):
             response = self.wake_me_up_mananger.get_response()
             self.msg_writer.send_message(channel_id, response)
 
+    def trigger_shannons(self):
+        channel_id = self.channel_manager.get_channel_id('flip_testing')
+        response = '<!channel> Time for shannonigans!!!'
+        self.msg_writer.send_message(channel_id, response)
+
     def trigger_timed_event(self):
         day, hour, minute, second = self._get_datetime()
         
@@ -73,6 +78,10 @@ class TimeTriggeredEventManager(object):
                 # 11:11
                 if hour == 11 and minute == 0:
                     self.trigger_eleven_eleven()
+            if day == 'Thursday':
+                # Shannons 
+                if hour == 21 and minute == 14:
+                    self.trigger_shannons()
 
     def _get_datetime(self):
         curr_datetime = datetime.utcnow() - timedelta(hours=HR_DIF_NO_DST)
