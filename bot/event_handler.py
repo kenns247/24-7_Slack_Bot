@@ -93,9 +93,9 @@ class RtmEventHandler(object):
                 elif re.search('apologize', lower_txt):
                     self.msg_writer.write_apologize(channel_id)
                     return
-                elif re.search('bomb|knife|explosive|explosion|blow up|kill', lower_txt) or 
+                elif (re.search('bomb|knife|explosive|explosion|blow up|kill', lower_txt) or 
                     re.search('terrorism|assassin|roofie|poison|anthrax|murder|arson', lower_txt) or
-                    re.search('hijack|overthrow|airstrike|nuke|missile|kkk|dictator', lower_txt):
+                    re.search('hijack|overthrow|airstrike|nuke|missile|kkk|dictator', lower_txt)):
                     self.msg_writer.write_added_to_watchlist(channel_id)
                     return
 
