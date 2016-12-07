@@ -111,7 +111,7 @@ class RtmEventHandler(object):
                     re.search('hijack|overthrow|airstrike|nuke|missile|kkk|dictator', lower_txt)):
                 self.msg_writer.write_added_to_watchlist(channel_id)
                 return
-            if ((re.search('do it', lower_txt) == True) and (re.search('don\'t', lower_txt) == False)):
+            if (re.search('do it', lower_txt) and not (re.search('don\'t', lower_txt)):
                 self.msg_writer.write_just_do_it(channel_id)
                 return
             if re.search('it together', lower_txt):
