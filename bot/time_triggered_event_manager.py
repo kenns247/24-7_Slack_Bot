@@ -45,7 +45,7 @@ class TimeTriggeredEventManager(object):
         if random.random() < 0.01:
             global HAS_TRIGGERED_THIS_HOUR
             HAS_TRIGGERED_THIS_HOUR = True
-            channel_id = self.channel_manager.get_channel_id('flip_testing')
+            channel_id = self.channel_manager.get_channel_id('general')
             response = self.wake_me_up_mananger.get_response()
             self.msg_writer.send_message(channel_id, response)
 
@@ -59,16 +59,16 @@ class TimeTriggeredEventManager(object):
             if minute == 0:
                 global HAS_TRIGGERED_THIS_HOUR
                 HAS_TRIGGERED_THIS_HOUR = False
-            # Wake Up Randoms
-            if hour >= 9 and hour <= 24 and HAS_TRIGGERED_THIS_HOUR == False:
-                self.trigger_wake_me_up()
             if (day != 'Saturday' and day != 'Sunday'):
                 # Stand Up
                 if hour == 10 and minute == 30:
                     self.trigger_standup()
                 # Tea Time
                 if hour == 15 and minute == 0:
-                    self.trigger_teatime()                
+                    self.trigger_teatime() 
+                # Wake Up Randoms
+                if hour >= 9 and hour <= 17 and HAS_TRIGGERED_THIS_HOUR == False:
+                    self.trigger_wake_me_up()
             if day == 'Monday':
                 # 11:11
                 if hour == 11 and minute == 0:
