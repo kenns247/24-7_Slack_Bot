@@ -127,7 +127,7 @@ class Messenger(object):
         self.send_message(channel_id, self.apology_manager.get_response())
 
     def write_watchlist(self, channel_id):
-        self.send_message(channel_id, self.watchlist.get_response())
+        self.send_message(channel_id, self.watchlist_manager.get_response())
 
     def write_added_to_watchlist(self, channel_id):
         self.send_message(channel_id, self.added_to_watchlist_manager.get_response())
