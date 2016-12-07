@@ -42,7 +42,7 @@ class TimeTriggeredEventManager(object):
         self.msg_writer.send_message(channel_id, response)
 
     def trigger_wake_me_up(self):
-        if random.random() < 0.001:
+        if random.random() < 0.000000000001:
             global HAS_TRIGGERED_THIS_HOUR
             HAS_TRIGGERED_THIS_HOUR = True
             channel_id = self.channel_manager.get_channel_id('general')
