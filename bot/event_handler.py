@@ -112,7 +112,9 @@ class RtmEventHandler(object):
                 self.msg_writer.write_added_to_watchlist(channel_id)
                 return
             if re.search('do it', lower_txt):
-                if re.search('don\'t', lower_txt) == True:
+                if re.search('don\'t', lower_txt):
+                    pass
+                else:
                     self.msg_writer.write_just_do_it(channel_id)
                     return
             if re.search('it together', lower_txt):
