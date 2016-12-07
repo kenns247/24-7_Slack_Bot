@@ -21,6 +21,7 @@ class Messenger(object):
         self.sass_manager = ResourceManager('sass.txt')
         self.trump_manager = ResourceManager('trump.txt')
         self.apology_manager = ResourceManager('apologies.txt')
+        self.added_to_watchlist_manager = ResourceManager('added_to_watchlist.txt')
 
     def send_message(self, channel_id, msg):
         # in the case of Group and Private channels, RTM channel payload is a complex dictionary
@@ -123,6 +124,10 @@ class Messenger(object):
 
     def write_apologize(self, channel_id):
         self.send_message(channel_id, self.apology_manager.get_response())
+
+    def write_added_to_watchlist(self, channel_id):
+        self.send_message(channel_id, self.added_to_watchlist_manager())
+
 
 
 # PRIVATE METHODS:

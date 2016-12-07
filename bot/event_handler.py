@@ -92,6 +92,12 @@ class RtmEventHandler(object):
                     return
                 elif re.search('apologize', lower_txt):
                     self.msg_writer.write_apologize(channel_id)
+                    return
+                elif re.search('bomb|knife|explosive|explosion|blow up|kill', lower_txt) or 
+                    re.search('terrorism|assassin|roofie|poison|anthrax|murder', lower_txt) or
+                    re.search('hijack|overthrow|airstrike|nuke|missile|kkk|dictator', lower_txt):
+                    self.msg_writer.write_added_to_watchlist(channel_id)
+                    return
 
             # Triggers that don't require @flip mentions
             if re.search('trump', lower_txt):
