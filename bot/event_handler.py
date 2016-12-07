@@ -109,6 +109,8 @@ class RtmEventHandler(object):
             if re.search('do it', lower_txt):
                 self.msg_writer.write_just_do_it(channel_id)
                 return
+            if re.search('it together', lower_txt):
+                self.msg_writer.write_together(channel_id)
             
             # Else ignore it
             else:

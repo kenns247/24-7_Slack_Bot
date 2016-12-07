@@ -24,6 +24,7 @@ class Messenger(object):
         self.watchlist_manager = ResourceManager('watchlist.txt')
         self.added_to_watchlist_manager = ResourceManager('added_to_watchlist.txt')
         self.just_do_it_manager = ResourceManager('just_do_it.txt')
+        self.get_it_together_manager = ResourceManager('get_it_together.txt')
 
     def send_message(self, channel_id, msg):
         # in the case of Group and Private channels, RTM channel payload is a complex dictionary
@@ -135,6 +136,9 @@ class Messenger(object):
 
     def write_just_do_it(self, channel_id):
         self.send_message(channel_id, self.just_do_it_manager.get_response())
+
+    def write_together(self, channel_id):
+        self.send_message(channel_id, self.get_it_together_manager.get_response())
 
 
 # PRIVATE METHODS:
