@@ -51,7 +51,7 @@ class TimeTriggeredEventManager(object):
             self.msg_writer.send_message(channel_id, response)
 
     def trigger_shannons(self):
-        channel_id = self.channel_manager.get_channel_id('flip_testing')
+        channel_id = self.channel_manager.get_channel_id('general')
         response = '<!channel> Time for shannonigans!!!'
         self.msg_writer.send_message(channel_id, response)
 
@@ -81,7 +81,7 @@ class TimeTriggeredEventManager(object):
                     self.trigger_eleven_eleven()
             if day == 'Thursday':
                 # Shannons 
-                if hour == 17 and minute == 30:
+                if hour == 17 and minute == 45:
                     self.trigger_shannons()
 
     def _get_datetime(self):
