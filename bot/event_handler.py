@@ -106,7 +106,7 @@ class RtmEventHandler(object):
             if re.search('trump', lower_txt):
                 self.msg_writer.write_trump(channel_id)
                 return
-            if (re.search('bomb|knife|explosive|explosion|blow up|kill', lower_txt) or 
+            if (re.search('bomb|knife|explosive|explosion|blow up|kill|fire', lower_txt) or 
                     re.search('terrorism|assassin|roofie|poison|anthrax|murder|arson', lower_txt) or
                     re.search('hijack|overthrow|airstrike|nuke|missile|kkk|dictator', lower_txt)):
                 self.msg_writer.write_added_to_watchlist(channel_id)
